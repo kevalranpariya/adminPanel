@@ -11,6 +11,7 @@ mongoose.connect('mongodb+srv://kevalran720:YUYC7k9UhHR7Gecw@cluster0.mmypcla.mo
     console.log('Database connected');
 }).catch((err)=>{
     console.log('Database not connected');
+    console.log(err);
 })
 
 const passport = require('passport');
@@ -28,7 +29,6 @@ server.set('view engine', 'ejs');
 server.set('views', path.join(__dirname, 'views'));
 
 server.use(express.static('asstes'));
-// server.use('/uploads', express.static(path.join(__dirname,'/uploads')));
 
 
 server.use(session({
