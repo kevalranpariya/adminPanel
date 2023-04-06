@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const { join } = require('path');
 const path = require('path');
-const admin_Path = '/uploads/admin'
+const admin_Path = '/images/admin'
 
 const AdminSchema = mongoose.Schema({
     name : {

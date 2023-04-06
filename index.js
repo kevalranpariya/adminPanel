@@ -5,6 +5,14 @@ const cookieParser = require('cookie-parser');
 const port = 4000;
 const server = express();
 
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb+srv://kevalran720:YUYC7k9UhHR7Gecw@cluster0.mmypcla.mongodb.net/CRMproject').then(()=>{
+    console.log('Database connected');
+}).catch((err)=>{
+    console.log('Database not connected');
+})
+
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const session = require('express-session');
@@ -15,13 +23,12 @@ const customMiddleware = require('./config/customMiddleware')
 server.use(urlencoded());
 server.use(cookieParser());
 
-const admin_db = require('./config/mongoose');
 
 server.set('view engine', 'ejs');
 server.set('views', path.join(__dirname, 'views'));
 
 server.use(express.static('asstes'));
-server.use('/uploads', express.static(path.join(__dirname,'/uploads')));
+// server.use('/uploads', express.static(path.join(__dirname,'/uploads')));
 
 
 server.use(session({
