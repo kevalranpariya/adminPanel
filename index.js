@@ -7,7 +7,11 @@ const server = express();
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://kevalran720:YUYC7k9UhHR7Gecw@cluster0.mmypcla.mongodb.net/CRMproject').then(()=>{
+mongoose.connect('mongodb+srv://kevalran720:YUYC7k9UhHR7Gecw@cluster0.mmypcla.mongodb.net/CRMproject',{
+    useNewUrlParser: true, 
+    useCreateIndex: true, 
+    useUnifiedTopology: true
+}).then(()=>{
     console.log('Database connected');
 }).catch((err)=>{
     console.log('Database not connected');
